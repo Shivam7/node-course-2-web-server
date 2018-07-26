@@ -7,7 +7,7 @@ var app=express();
 //support to partilas for handle bar partials to run nodemon server.js -e js,hbs
 hbs.registerPartials(__dirname+'/views/partials');
 hbs.registerHelper('getCurrentYear',()=>{
-return "till"+ new Date().getFullYear() 
+return "till "+" "+ new Date().getFullYear() 
 });
 app.set('view engine','hbs');
 //middleware to serve html page
@@ -51,6 +51,12 @@ res.render('about.hbs',{
     currentDate:new Date().getFullYear()
 });
 })
+app.get('/project',(req,res)=>{
+    //res.send("About we page");
+    res.render('project.hbs',{
+        pageTittle:"Project"
+    });
+    })
 
 app.get('/bad',(req,res)=>{
     res.send({
