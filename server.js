@@ -1,7 +1,7 @@
 const express =require('express');
 const hbs=require('hbs');
 const fs=require('fs');
-
+const port=process.env.PORT||3000;
 var app=express();
 
 //support to partilas for handle bar partials to run nodemon server.js -e js,hbs
@@ -57,4 +57,4 @@ app.get('/bad',(req,res)=>{
         "Error":"requested page not found"
     })
 })
-app.listen(3000);
+app.listen(port);
